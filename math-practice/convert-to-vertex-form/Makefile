@@ -2,7 +2,7 @@
 # convert-to-vertex-form.pdf: convert-to-vertex-form.tex
 	# pdflatex convert-to-vertex-form.tex
 
-solutions.txt: convert-to-vertex-form.tex
+solutions.txt: convert-to-vertex-form.tex Calculator.py
 	cat convert-to-vertex-form.tex | rg -e '\$$.*\$$' | \
 		sed -E 's/^.*\\item \$$(.*)\$$$$/\1/' > quadratic-expressions.txt
 	cat quadratic-expressions.txt | sed -E 's/^y = (.*)$$/\1/' > raw-expressions.txt

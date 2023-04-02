@@ -55,8 +55,7 @@ class Calculator:
         denominator = 4 * a
         extreme = self.fractionDivision(numerator, denominator)
         axisOfSymmetry = self.fractionDivision(-b, 2*a)
-        return f"{extreme} @ {axisOfSymmetry}"
-
+        return f"({axisOfSymmetry}, {extreme})"
 
     def fractionDivision(self, a, b):
         if a == 0:
@@ -70,6 +69,8 @@ class Calculator:
             sign = "-"
         a = abs(a // gcd)
         b = abs(b // gcd)
+        if b == 1:
+            return f"{sign}{a}"
         return f"{sign}{a}/{b}"
 
 
